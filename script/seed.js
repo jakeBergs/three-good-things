@@ -9,22 +9,56 @@
  *
  * Now that you've got the main idea, check it out in practice below!
  */
+const Promise = require('bluebird')
 const db = require('../server/db')
-const {User} = require('../server/db/models')
+const {User, Thing} = require('../server/db/models')
+
+function generateThings() {
+  return [Thing.build({content: 'Petted a puppy!'}),
+    Thing.build({content: 'meditated for 20 minutes'}),
+    Thing.build({content: 'finished a CRUD app'}),
+    Thing.build({content: 'Found 5 dollars on the ground'}),
+    Thing.build({content: 'bought a coworker hot chocolate'}),
+    Thing.build({content: 'got date with crush'})]
+}
+
+function createThings() {
+  return Promise.map(generateThings(), thing => thing.save());
+}
+
+function createUsers() {
+  return Promise.all([
+    User.create({email: 'cody@email.com', password: '123'}),
+    User.create({email: 'murphy@email.com', password: '123'}),
+    User.create({email: 'jake@bergal.com', password: 'jmb'})
+  ])
+}
+
+async function associateUsersThings() {
+  const user1 = await User.findById(1);
+  const user3 = await User.findById(3);
+
+  await user1.setThings([1, 2, 3])
+  await user3.setThings([4, 5, 6])
+
+}
 
 async function seed () {
   await db.sync({force: true})
-  console.log('db synced!')
+  console.log('syncing deb')
   // Whoa! Because we `await` the promise that db.sync returns, the next line will not be
   // executed until that promise resolves!
+  console.log('creating users')
+  await createUsers();
 
-  const users = await Promise.all([
-    User.create({email: 'cody@email.com', password: '123'}),
-    User.create({email: 'murphy@email.com', password: '123'})
-  ])
+  console.log('creating things')
+  await createThings();
+
+  console.log('seeding associations')
+  await associateUsersThings();
   // Wowzers! We can even `await` on the right-hand side of the assignment operator
   // and store the result that the promise resolves to in a variable! This is nice!
-  console.log(`seeded ${users.length} users`)
+  // console.log(`seeded ${users.length} users`)
   console.log(`seeded successfully`)
 }
 

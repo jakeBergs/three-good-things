@@ -1,7 +1,7 @@
 {
-  "name": "boilermaker",
+  "name": "three-good-things",
   "version": "1.0.0",
-  "description": "Some boilerplate code to get you started - get shakin'!",
+  "description": "Put positivity in, get it back when you need it",
   "engines": {
     "node": ">= 7.0.0"
   },
@@ -23,6 +23,7 @@
   "license": "MIT",
   "dependencies": {
     "axios": "^0.15.3",
+    "bluebird": "^3.5.1",
     "body-parser": "^1.16.1",
     "compression": "^1.7.1",
     "connect-session-sequelize": "^4.1.0",

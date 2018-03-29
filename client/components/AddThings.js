@@ -19,7 +19,7 @@ class AddThings extends Component {
     console.log(i);
     let things = [...this.state.things];
     things[i] = event.target.value;
-    this.setState({things});
+    this.setState({ things });
   }
 
   saveHandler(event, i) {
@@ -37,21 +37,25 @@ class AddThings extends Component {
 
   render() {
     return (
-      <div>
-        <ol className="three-thing-input">
-          <li>
+      <div className="three-thing-input">
+
+        <div className="thing-container">
+          <div className="input-wrapper">
+            <h2 className="thing-num">1</h2>
             <TextArea className="thing-input" rows={2} value={this.state.things[0]} onChange={(ev) => this.changeHandler(ev, 0)} />
-            <Button type="primary">Save</Button>
-          </li>
-          <li>
-            <TextArea className="thing-input" rows={2} value={this.state.things[1]} onChange={(ev) => this.changeHandler(ev, 1)} />
-            <Button type="primary">Save</Button>
-          </li>
-          <li>
-            <TextArea className="thing-input" rows={2} value={this.state.things[2]} onChange={(ev) => this.changeHandler(ev, 2)} />
-            <Button type="primary">Save</Button>
-          </li>
-        </ol>
+          </div>
+          <div className="input-button-wrapper" >
+          <Button type="primary">Save</Button>
+          </div>
+        </div>
+        <div className="thing-container">
+          <TextArea className="thing-input" rows={2} value={this.state.things[1]} onChange={(ev) => this.changeHandler(ev, 1)} />
+          <Button type="primary">Save</Button>
+        </div>
+        <div className="thing-container">
+          <TextArea className="thing-input" rows={2} value={this.state.things[2]} onChange={(ev) => this.changeHandler(ev, 2)} />
+          <Button type="primary">Save</Button>
+        </div>
       </div>
     )
   }

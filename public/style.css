@@ -3,6 +3,7 @@ body {
   font-family:  -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
   "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
   SimSun, sans-serif;
+  box-sizing: border-box;
 }
 
 a {
@@ -23,6 +24,45 @@ form div {
   display: inline-block;
 }
 
-.thing-input {
-  width: 80%;
+.thing-input.ant-input {
+  font-size: 35px;
+  /* border: none; */
+  width: 100%;
+}
+
+.thing-container {
+  display: flex;
+  justify-content: space-around;
+  padding: 3% 0%;
+  font-size: 25px;
+}
+
+ol {
+  margin-left: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.input-wrapper {
+  display: flex;
+  width: 60%
+}
+
+.input-button-wrapper {
+  position: relative;
+  margin: auto 10px;
+}
+
+.thing-container .ant-btn {
+  width: 100px;
+  height: 40px;
+  font-size: 26px;
+  left: -150px;
+}
+
+.thing-num {
+  padding-right: 25px;
+  font-size: 45px;
+  margin: auto auto;
 }

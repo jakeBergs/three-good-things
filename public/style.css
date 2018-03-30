@@ -65,6 +65,11 @@ form div {
   justify-content: space-around;
   padding: 4.5% 0%;
   font-size: 25px;
+  opacity: 0;
+}
+
+.active {
+  opacity: 1;
 }
 
 .input-wrapper {
@@ -94,3 +99,5 @@ form div {
   font-size: 45px;
   margin: auto auto;
 }
+
+

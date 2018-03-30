@@ -6,6 +6,10 @@ body {
   box-sizing: border-box;
 }
 
+.flex {
+  display: flex;
+}
+
 a {
   text-decoration: none;
 }
@@ -24,24 +28,48 @@ form div {
   display: inline-block;
 }
 
+.custom-nav {
+  background-color: skyblue;
+  color: aliceblue;
+  justify-content: space-between;
+  width: 96%;
+  margin: 0 2%;
+  padding: 10px 10px 0px 10px;
+  border-bottom-left-radius: 1em;
+  border-bottom-right-radius: 1em;
+  height: 70px;
+}
+
+.custom-nav a {
+  background-color: aliceblue;
+  padding: 5px;
+  border-radius: 2px;
+}
+
+.custom-nav a:hover {
+  color: skyblue;
+  background-color: gray;
+}
+
+.three-thing-input {
+  max-height: calc(100vw - 56px)
+}
+
 .thing-input.ant-input {
   font-size: 35px;
-  /* border: none; */
   width: 100%;
 }
 
 .thing-container {
   display: flex;
   justify-content: space-around;
-  padding: 3% 0%;
+  padding: 4.5% 0%;
   font-size: 25px;
+  opacity: 0;
 }
 
-ol {
-  margin-left: 30px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+.active {
+  opacity: 1;
 }
 
 .input-wrapper {
@@ -54,11 +82,16 @@ ol {
   margin: auto 10px;
 }
 
+.input-button-wrapper button {
+  background-color: skyblue;
+  border: aliceblue;
+}
+
 .thing-container .ant-btn {
   width: 100px;
   height: 40px;
   font-size: 26px;
-  left: -150px;
+  left: -130px;
 }
 
 .thing-num {
@@ -66,3 +99,5 @@ ol {
   font-size: 45px;
   margin: auto auto;
 }
+
+

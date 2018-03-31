@@ -72,6 +72,18 @@ form div {
   opacity: 1;
 }
 
+.saved {
+  opacity: .9;
+}
+
+.saved button {
+  opacity: 0;
+}
+
+.saved h2 {
+  opacity: 0;
+}
+
 .input-wrapper {
   display: flex;
   width: 60%

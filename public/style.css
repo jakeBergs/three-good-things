@@ -63,7 +63,7 @@ form div {
 .thing-container {
   display: flex;
   justify-content: space-around;
-  padding: 4.5% 0%;
+  padding: 3.5% 0%;
   font-size: 25px;
   opacity: 0;
 }
@@ -74,6 +74,13 @@ form div {
 
 .saved {
   opacity: .9;
+}
+
+.saved .thing-input.ant-input{
+  border: none;
+  background-color: skyblue;
+  box-shadow: 0px 0px 100px skyblue;
+  text-align: center;
 }
 
 .saved button {

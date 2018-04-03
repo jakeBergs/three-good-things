@@ -12,18 +12,18 @@ export const UserHome = (props) => {
   console.log(Date())
   const now = Date();
   return (
-    <div>
-      <div>
+    <div className="home-content flex">
+      <div className="welcome flex">
         <h2>Welcome, {email}</h2>
         <h3>April 1, 2018</h3>
       </div>
-      <div>
+      <div className="home-things flex">
         <div>
-          <h3>You have saved 0 memories today</h3>
+          <h3>You have saved {props.saved} memories today</h3>
           <Link to="/addThings" >add more</Link>
         </div>
-        <div>
-          <p>...</p>
+        <div id="good-thing-display">
+          <p >...</p>
           <button>get something positive</button>
         </div>
       </div>
@@ -36,7 +36,8 @@ export const UserHome = (props) => {
  */
 const mapState = (state) => {
   return {
-    email: state.user.email
+    email: state.user.email,
+    saved: state.saved
   }
 }
 
@@ -46,5 +47,5 @@ export default connect(mapState)(UserHome)
  * PROP TYPES
  */
 UserHome.propTypes = {
-  email: PropTypes.string
+  email: PropTypes.string,
 }

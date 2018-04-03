@@ -119,4 +119,21 @@ form div {
   margin: auto auto;
 }
 
+.home-content {
+  height: 60vh;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
 
+.welcome {
+  height: 20%;;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.home-things {
+  width: 80%;
+  justify-content: space-between;
+}

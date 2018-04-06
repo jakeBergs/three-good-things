@@ -1,16 +1,38 @@
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 
 /**
  * COMPONENT
  */
-export const UserHome = (props) => {
-  const { email } = props
+export class UserHome extends Component {
+  constructor() {
+    super()
 
-  console.log(Date())
-  const now = Date();
+    this.state = {
+      thing: '...'
+    }
+
+    this.handleGetThing = this.handleGetThing.bind(this)
+  }
+
+  handleGetThing(event) {
+    event.preventDefault();
+    const { userId } = this.props;
+
+    axios.get(`/api/users/${userId}/thing/random`)
+      .then(res => res.data)
+      .then(thing => {
+        this.setState({thing})
+      })
+  }
+
+render() {
+  const { email, saved} = this.props;
+  const thing = this.state.thing;
+  console.log(thing);
   return (
     <div className="home-content flex">
       <div className="welcome flex">
@@ -18,17 +40,22 @@ export const UserHome = (props) => {
         <h3>April 1, 2018</h3>
       </div>
       <div className="home-things flex">
-        <div>
-          <h3>You have saved {props.saved} memories today</h3>
-          <Link to="/addThings" >add more</Link>
+        <div className="saved-info" >
+          <h3>You have saved {saved} memories today</h3>
+          {
+            saved < 3 ? <Link to="/addThings" className="add-more" >Add More</Link> : <h4>Stay Positive</h4>
+          }
+
         </div>
         <div id="good-thing-display">
-          <p >...</p>
-          <button>get something positive</button>
+          <p className="thing-received">{thing}</p>
+          <button onClick={this.handleGetThing}>Get Something Positive</button>
         </div>
       </div>
     </div>
   )
+}
+
 }
 
 /**
@@ -37,6 +64,7 @@ export const UserHome = (props) => {
 const mapState = (state) => {
   return {
     email: state.user.email,
+    userId: state.user.id,
     saved: state.saved
   }
 }

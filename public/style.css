@@ -20,7 +20,7 @@ label {
 
 nav a {
   display: inline-block;
-  margin: 1em;
+  /* margin: 1em; */
 }
 
 form div {
@@ -33,7 +33,7 @@ form div {
   color: aliceblue;
   justify-content: space-between;
   width: 96%;
-  margin: 0 2%;
+  /* margin: 0 2%; */
   padding: 10px 10px 0px 10px;
   border-bottom-left-radius: 1em;
   border-bottom-right-radius: 1em;
@@ -42,8 +42,9 @@ form div {
 
 .custom-nav a {
   background-color: aliceblue;
-  padding: 5px;
+  padding: 8px;
   border-radius: 2px;
+  height: 100%;
 }
 
 .custom-nav a:hover {
@@ -78,7 +79,7 @@ form div {
 
 .saved .thing-input.ant-input{
   border: none;
-  background-color: skyblue;
+  background-color: aliceblue;
   box-shadow: 0px 0px 100px skyblue;
   text-align: center;
 }
@@ -127,6 +128,7 @@ form div {
 }
 
 .welcome {
+  font-size: 30px;
   height: 20%;;
   flex-direction: column;
   justify-content: space-between;
@@ -136,4 +138,14 @@ form div {
 .home-things {
   width: 80%;
   justify-content: space-between;
+}
+
+.add-more {
+
+}
+
+.saved-info {
+  font-size: 25px;
+  text-align: center;
+  /* width: 25%; */
 }

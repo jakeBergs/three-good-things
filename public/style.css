@@ -33,18 +33,23 @@ form div {
   color: aliceblue;
   justify-content: space-between;
   width: 96%;
-  /* margin: 0 2%; */
-  padding: 10px 10px 0px 10px;
+  margin: 0 2%;
+  padding: 0px 10px 0px 10px;
   border-bottom-left-radius: 1em;
   border-bottom-right-radius: 1em;
-  height: 70px;
+  height: 58px;
 }
 
 .custom-nav a {
-  background-color: aliceblue;
-  padding: 8px;
-  border-radius: 2px;
+  /* background-color: aliceblue; */
+  padding: 19px 10px 18px 10px;
   height: 100%;
+  /* border-radius: 2px; */
+  height: 100%;
+}
+
+#title {
+  padding-top: 8px;
 }
 
 .custom-nav a:hover {

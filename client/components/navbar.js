@@ -3,22 +3,26 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { logout } from '../store'
+import { loadThings } from '../store/things'
 
-export class Navbar extends Component{
+class Navbar extends Component{
   constructor() {
     super()
 
   }
 
-  componentDidMount() {
-
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.isLoggedIn){
+      console.log('sup')
+      nextProps.loadTodaysThings(nextProps.userId)
+    }
   }
 
-  redner() {
+  render() {
     let {handleClick, isLoggedIn} = this.props
     return (
       <div className = "flex custom-nav" >
-        <h1>Three Good Things</h1>
+        <h1 id="title">Three Good Things</h1>
         <nav>
           {isLoggedIn ? (
             <div>
@@ -48,7 +52,8 @@ export class Navbar extends Component{
  */
 const mapState = state => {
   return {
-    isLoggedIn: !!state.user.id
+    isLoggedIn: !!state.user.id,
+    userId: state.user.id
   }
 }
 
@@ -57,8 +62,8 @@ const mapDispatch = dispatch => {
     handleClick() {
       dispatch(logout())
     },
-    loadTodaysThings() {
-
+    loadTodaysThings(id) {
+      dispatch(loadThings(id))
     }
   }
 }

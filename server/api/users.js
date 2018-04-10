@@ -25,17 +25,22 @@ router.get('/:id/things', (req, res, next) => {
 // get things done today
 router.get('/:id/things/today', (req, res, next) => {
   const today = new Date();
+  console.log(today)
+  console.log(new Date(today.getFullYear(), today.getMonth(), today.getDate()))
   User.findById(req.params.id)
     .then(user => {
       return user.getThings({
         where: {
           createdAt: {
-            $gte: new Date(new Date(today.getFullYear(), today.getMonth(), today.getDay()))
+            $gte: new Date(today.getFullYear(), today.getMonth(), today.getDate())
           }
         }
       })
     })
-    .then(things => res.json(things))
+    .then(things => {
+      // console.log(things)
+      res.json(things)
+    })
     .catch(next)
 })
 
@@ -64,7 +69,7 @@ router.get('/:id/thing/random', (req, res, next) => {
       return user.getThings({
         where: {
           createdAt: {
-            $lt: new Date(new Date(today.getFullYear(), today.getMonth(), today.getDay()))
+            $lt: new Date(new Date(today.getFullYear(), today.getMonth() + 1, today.getDate()))
           }
         }
       })
@@ -74,3 +79,8 @@ router.get('/:id/thing/random', (req, res, next) => {
     })
     .catch(console.error)
 })
+
+// const timeDate = () => {
+//   const today = new Date();
+//   const offset = 5;
+// }

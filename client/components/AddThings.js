@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Input, Button, message } from 'antd';
 import {saveThing} from '../store/saved'
+import { loadThings } from '../store/things'
 const { TextArea } = Input;
 
 class AddThings extends Component {
@@ -73,7 +74,8 @@ class AddThings extends Component {
 const mapState = (state) => {
   return {
     user: state.user,
-    saved: state.saved
+    saved: state.saved,
+    things: state.things
   }
 }
 
@@ -81,6 +83,9 @@ const mapDispatch = dispatch => {
   return {
     save(thing, userId) {
       dispatch(saveThing(thing, userId))
+    },
+    loadTodaysThings(id) {
+      dispatch(loadThings(id))
     }
   }
 }

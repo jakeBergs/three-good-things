@@ -3,7 +3,7 @@ import axios from 'axios'
 const ADDSAVE = 'ADDSAVE';
 const SETSAVED = 'SETSAVED';
 
-const addSave = () => ({type: ADDSAVE})
+export const addSave = () => ({type: ADDSAVE})
 export const setSaved = (count) => ({type: SETSAVED, count})
 
 export default function(state = 0, action) {
@@ -17,10 +17,10 @@ export default function(state = 0, action) {
   }
 }
 
-export const saveThing = (thing, userId) => dispatch =>
-  axios.post(`/api/users/${userId}/thing`, {content: thing})
-    .then(res => res.data)
-    .then(thing => {
-      dispatch(addSave())
-    })
-    .catch(console.error)
+// export const saveThing = (thing, userId) => dispatch =>
+//   axios.post(`/api/users/${userId}/thing`, {content: thing})
+//     .then(res => res.data)
+//     .then(thing => {
+//       dispatch(addSave())
+//     })
+//     .catch(console.error)

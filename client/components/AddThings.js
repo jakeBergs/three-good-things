@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Input, Button, message } from 'antd';
-import {saveThing} from '../store/saved'
-import { loadThings } from '../store/things'
+// import {saveThing} from '../store/saved'
+import { loadThings, saveThing } from '../store/things'
 const { TextArea } = Input;
 
 class AddThings extends Component {
@@ -15,6 +15,17 @@ class AddThings extends Component {
 
     this.changeHandler = this.changeHandler.bind(this);
     this.saveHandler = this.saveHandler.bind(this);
+  }
+
+  componentDidMount() {
+    if (this.props.things !== undefined) {
+      this.setState({ things: this.props.things })
+    }
+  }
+
+  componentWillReceiveProps(newProps) {
+    // console.log
+    this.setState({ things: newProps.things })
   }
 
   changeHandler(event, i) {
@@ -37,33 +48,35 @@ class AddThings extends Component {
   render() {
     let saved = this.props.saved;
     return (
-      <div className="three-thing-input">
+      <div>
+        <div className="three-thing-input">
 
-        <div className={`thing-container ${saved === 0 ? 'active' : ''} ${saved > 0 ? 'saved' : ''}`}>
-          <div className="input-wrapper">
-            <h2 className="thing-num">1</h2>
-            <TextArea className="thing-input" rows={2} value={this.state.things[0]} onChange={(ev) => this.changeHandler(ev, 0)} disabled={saved > 0} />
+          <div className={`thing-container ${saved === 0 ? 'active' : ''} ${saved > 0 ? 'saved' : ''}`}>
+            <div className="input-wrapper">
+              <h2 className="thing-num">1</h2>
+              <TextArea className="thing-input" rows={2} value={this.state.things[0]} onChange={(ev) => this.changeHandler(ev, 0)} disabled={saved > 0} />
+            </div>
+            <div className="input-button-wrapper" >
+              <Button onClick={ev => this.saveHandler(ev, 0)} type="primary">Save</Button>
+            </div>
           </div>
-          <div className="input-button-wrapper" >
-            <Button onClick={ev => this.saveHandler(ev, 0)} type="primary">Save</Button>
+          <div className={`thing-container ${saved === 1 ? 'active' : ''} ${saved > 1 ? 'saved' : ''}`}>
+            <div className="input-wrapper">
+              <h2 className="thing-num">2</h2>
+              <TextArea className="thing-input" rows={2} value={this.state.things[1]} onChange={(ev) => this.changeHandler(ev, 1)} disabled={saved > 1} />
+            </div>
+            <div className="input-button-wrapper" >
+              <Button type="primary" onClick={ev => this.saveHandler(ev, 1)}>Save</Button>
+            </div>
           </div>
-        </div>
-        <div className={`thing-container ${saved === 1 ? 'active' : ''} ${saved > 1 ? 'saved' : ''}`}>
-          <div className="input-wrapper">
-            <h2 className="thing-num">2</h2>
-            <TextArea className="thing-input" rows={2} value={this.state.things[1]} onChange={(ev) => this.changeHandler(ev, 1)} disabled={saved > 1} />
-          </div>
-          <div className="input-button-wrapper" >
-            <Button type="primary" onClick={ev => this.saveHandler(ev, 1)}>Save</Button>
-          </div>
-        </div>
-        <div className={`thing-container ${saved === 2 ? 'active' : ''} ${saved > 2 ? 'saved' : ''}`}>
-          <div className="input-wrapper">
-            <h2 className="thing-num">3</h2>
-            <TextArea className="thing-input" rows={2} value={this.state.things[2]} onChange={(ev) => this.changeHandler(ev, 2)} disabled={saved > 2} />
-          </div>
-          <div className="input-button-wrapper" >
-            <Button type="primary" onClick={ev => this.saveHandler(ev, 2)}>Save</Button>
+          <div className={`thing-container ${saved === 2 ? 'active' : ''} ${saved > 2 ? 'saved' : ''}`}>
+            <div className="input-wrapper">
+              <h2 className="thing-num">3</h2>
+              <TextArea className="thing-input" rows={2} value={this.state.things[2]} onChange={(ev) => this.changeHandler(ev, 2)} disabled={saved > 2} />
+            </div>
+            <div className="input-button-wrapper" >
+              <Button type="primary" onClick={ev => this.saveHandler(ev, 2)}>Save</Button>
+            </div>
           </div>
         </div>
       </div>

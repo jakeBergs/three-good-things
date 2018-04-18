@@ -155,3 +155,15 @@ form div {
   text-align: center;
   /* width: 25%; */
 }
+
+#good-thing-display {
+  width: 45%;
+  padding: 10px;
+  text-align: center;
+}
+
+.thing-received {
+  font-size: 20px;
+  height: 45px;
+  color: skyblue;
+}

@@ -17,7 +17,7 @@ export const loadThings = userId => dispatch => {
   axios.get(`/api/users/${userId}/things/today`)
     .then(res => res.data)
     .then(things => {
-      console.log(things)
+      // console.log(things)
       Promise.resolve(dispatch(getThings(things.map(thing => thing.content))))
         .then(() => dispatch(setSaved(things.length)))
     })

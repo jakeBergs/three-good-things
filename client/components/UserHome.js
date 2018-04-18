@@ -12,7 +12,10 @@ export class UserHome extends Component {
     super()
 
     this.state = {
-      thing: '...'
+      thing: {
+        content: '...',
+        date: null
+      }
     }
 
     this.handleGetThing = this.handleGetThing.bind(this)
@@ -31,8 +34,8 @@ export class UserHome extends Component {
 
 render() {
   const { email, saved} = this.props;
-  const thing = this.state.thing;
-  console.log(thing);
+  const {content, date} = this.state.thing;
+  console.log(content, typeof date);
   return (
     <div className="home-content flex">
       <div className="welcome flex">
@@ -48,7 +51,8 @@ render() {
 
         </div>
         <div id="good-thing-display">
-          <p className="thing-received">{thing}</p>
+          <p className="thing-received">{content}</p>
+          <p>{date ? `${date.substring(5, 7)}/${date.substring(8, 10)}/${date.substring(0, 4)}` : ''}</p>
           <button onClick={this.handleGetThing}>Get Something Positive</button>
         </div>
       </div>

@@ -64,18 +64,20 @@ router.get('/:id/thing/random', (req, res, next) => {
 
   const today = new Date();
 
+  console.log(today, new Date(today.getFullYear(), today.getMonth(), today.getDate()))
+
   User.findById(req.params.id)
     .then(user => {
       return user.getThings({
         where: {
           createdAt: {
-            $lt: new Date(new Date(today.getFullYear(), today.getMonth() + 1, today.getDate()))
+            $lt: new Date(today.getFullYear(), today.getMonth(), today.getDate())
           }
         }
       })
     }).then(things => {
       const randThing = things[randomInt(things.length)];
-      res.json(randThing.content);
+      res.json({content: randThing.content, date: randThing.createdAt});
     })
     .catch(console.error)
 })

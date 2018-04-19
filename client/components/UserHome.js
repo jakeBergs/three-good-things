@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+import ListThings from './ListThings'
 
 /**
  * COMPONENT
@@ -33,7 +34,7 @@ export class UserHome extends Component {
   }
 
 render() {
-  const { email, saved} = this.props;
+  const { email, saved, userId} = this.props;
   const {content, date} = this.state.thing;
   console.log(content, typeof date);
   return (
@@ -56,6 +57,7 @@ render() {
           <button onClick={this.handleGetThing}>Get Something Positive</button>
         </div>
       </div>
+      <ListThings id={userId} />
     </div>
   )
 }

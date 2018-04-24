@@ -36,6 +36,7 @@
     "less-loader": "^4.1.0",
     "morgan": "^1.8.1",
     "passport": "^0.3.2",
+    "passport-facebook": "^2.1.1",
     "passport-google-oauth": "^1.0.0",
     "pg": "^6.1.2",
     "pg-hstore": "^2.3.2",

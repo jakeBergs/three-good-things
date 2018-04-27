@@ -167,3 +167,12 @@ form div {
   height: 45px;
   color: skyblue;
 }
+
+table {
+  border-collapse: separate !important;
+  background-color: aliceblue;
+  padding: 10px;
+  border-radius: 1em;
+  border: 2px solid gray;
+  width: 100%;
+}

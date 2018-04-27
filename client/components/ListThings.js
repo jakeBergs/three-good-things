@@ -43,7 +43,7 @@ export default class ListThings extends Component {
                   <td>
                     {thing.content}
                   </td>
-                  <td>
+                  <td className="date-div">
                     {thing.createdAt.substring(5, 7)}/{thing.createdAt.substring(8, 10)}/{thing.createdAt.substring(0, 4)}
                   </td>
                   <td>

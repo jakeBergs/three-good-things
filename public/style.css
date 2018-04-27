@@ -167,3 +167,36 @@ form div {
   height: 45px;
   color: skyblue;
 }
+
+table {
+  border-collapse: separate !important;
+  background-color: aliceblue;
+  padding: 10px;
+  border-radius: 1em;
+  border: 2px solid gray;
+  margin-top: 30px;
+  width: 80%;
+}
+
+table button {
+  border-radius: 1em;
+  border: none;
+}
+
+table button:hover {
+  background-color:gray;
+  color: skyblue;
+}
+
+.content-div {
+  width: 60%;
+}
+
+.date-div {
+  width: 20%;
+}
+
+.sentiment-div {
+  width: 20%;
+}
+

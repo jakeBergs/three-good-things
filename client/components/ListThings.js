@@ -27,26 +27,25 @@ export default class ListThings extends Component {
     const { allThings } = this.state;
     console.log(allThings)
     return (
-      <div>
         <table>
           <thead>
             <tr className="thing-table-headers">
-              <th>Thing</th>
-              <th>Date</th>
-              <th>Sentiment</th>
+              <th className="content-div">Thing</th>
+              <th className="date-div">Date</th>
+              <th className="sentiment-div">Sentiment</th>
             </tr>
           </thead>
           <tbody>
             {allThings.length ? (
               allThings.map(thing => (
                 <tr key={thing.id} className="thing-table-row">
-                  <td>
+                  <td className="content-div">
                     {thing.content}
                   </td>
-                  <td>
+                  <td className="date-div">
                     {thing.createdAt.substring(5, 7)}/{thing.createdAt.substring(8, 10)}/{thing.createdAt.substring(0, 4)}
                   </td>
-                  <td>
+                  <td className="sentiment-div">
                     <button>
                       get score
                   </button>
@@ -62,7 +61,6 @@ export default class ListThings extends Component {
               )}
           </tbody>
         </table>
-      </div>
     )
   }
 }

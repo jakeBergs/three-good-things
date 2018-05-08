@@ -43,6 +43,7 @@ class AddThings extends Component {
       message.error('That thing is a little too long')
     }
     this.props.save(thing, this.props.user.id)
+    console.log(this.props.history)
   }
 
   render() {

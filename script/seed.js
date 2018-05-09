@@ -14,10 +14,10 @@ const db = require('../server/db')
 const {User, Thing} = require('../server/db/models')
 
 function generateThings() {
-  return [Thing.build({content: 'Petted a puppy!'}),
+  return [Thing.build({content: 'Petted a puppy!', details: 'It was a cute dog I met outside of Cuvee coffe on 6th. I think I want to get a dog. I need more of that unbrideled positivity in my life. Preferably a fuzzy dog'}),
     Thing.build({content: 'meditated for 20 minutes'}),
     Thing.build({content: 'finished a CRUD app'}),
-    Thing.build({content: 'Found 5 dollars on the ground'}),
+    Thing.build({content: 'Found 5 dollars on the ground', details: 'It was outside of a thai restaurant. It felt good to have th universe drop something nice at my feet like that. I feel like I should do something nice now to repay the universe'}),
     Thing.build({content: 'bought a coworker hot chocolate'}),
     Thing.build({content: 'got date with crush'})]
 }

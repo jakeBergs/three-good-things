@@ -16,7 +16,7 @@ router.get('/:id', (req, res, next) => {
 
 router.put('/:id', (req, res, next) => {
   Thing.findById(req.params.id)
-    .then(thing => thing.update({description: req.body.description}))
+    .then(thing => thing.update({details: req.body.details}))
     .then(update => res.json(update))
     .catch(next)
 })

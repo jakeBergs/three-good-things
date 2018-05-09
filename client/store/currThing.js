@@ -13,8 +13,9 @@ export const fetchThing = id => dispatch => {
     .catch(console.error)
 }
 
-export const updateThing = (id, description) => dispatch => {
-  axios.put(`/api/things/${id}`, description)
+export const updateThing = (id, details) => dispatch => {
+  console.log(details)
+  axios.put(`/api/things/${id}`, {details: details})
     .then(res => res.data)
     .then(newThing => {
       console.log(newThing);

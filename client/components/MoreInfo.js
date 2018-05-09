@@ -8,18 +8,28 @@ import {fetchThing, updateThing} from '../store/currThing';
 class MoreInfo extends Component {
   constructor() {
     super()
+
+    this.submitDescription = this.submitDescription.bind(this)
   }
 
   componentDidMount() {
     this.props.getThing()
   }
 
+  submitDescription(event) {
+    event.preventDefault();
+    this.props.saveDescription(event.target.description.value);
+    this.props.history.push('/addThings')
+  }
+
   render() {
+    console.log(this.props)
     return (
       <div>
-        <h2>The saved thing</h2>
-        <form>
-          <TextArea />
+        <h2>{this.props.thing === undefined ?
+      'loading' : this.props.thing.content}</h2>
+        <form onSubmit={this.submitDescription} >
+          <TextArea name="description" />
           <input type="submit" value="click dis" />
         </form>
       </div>
